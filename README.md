@@ -1,4 +1,4 @@
-n this project, a comprehensive machine learning system is developed using Python to predict handwritten digits using the MNIST dataset.
+In this project, a comprehensive machine learning system is developed using Python to predict handwritten digits using the MNIST dataset.
 
 The code is designed with modularity in mind, ensuring easy maintainability and packaging.
 
@@ -41,10 +41,10 @@ will register the model with appropriate version
 
 ### request to generate docker file
 
-```mlflow models generate-dockerfile -m "models:/mnist_classifier/1" -d inferencing_api_deployment``
+```mlflow models generate-dockerfile -m "models:/mnist_classifier/1" -d inferencing_api_deployment```
 
 ### Build the docker image
-```docker build -t ecrregistry/minist/inferencing:prod "inferencing_api_deployment"``
+```docker build -t ecrregistry/minist/inferencing:prod "inferencing_api_deployment"```
 
 ### Pushing the image to docker hub
 docker tag 0a8eab4c8858 azmd801/minist-classifier:dev
