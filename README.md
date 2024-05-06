@@ -47,7 +47,7 @@ will fetch the data from source, tranform it, train a model on it , perform eval
 ```mlflow models generate-dockerfile -m "models:/mnist_classifier/1" -d inferencing_api_deployment```
 
 ### Build the docker image
-```docker build -t ecrregistry/minist/inferencing:prod "inferencing_api_deployment"```
+```docker build -t minist/inferencing:prod "inferencing_api_deployment"```
 
 ### Pushing the image to docker hub
 docker tag 0a8eab4c8858 azmd801/minist-classifier:dev
