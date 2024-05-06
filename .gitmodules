@@ -1,0 +1,3 @@
+[submodule "mlflow-tracking-server"]
+	path = mlflow-tracking-server
+	url = https://github.com/azmd801/mlflow-tracking-server
