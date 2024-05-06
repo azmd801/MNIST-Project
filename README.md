@@ -30,7 +30,10 @@ pull the repo in your local system
 ### Run the project 
 `python run_ml_workflow.py`
 
-will register the model with appropriate version
+will fetch the data from source, tranform it, train a model on it , perform evalution of the model and register the model with appropriate version
+
+##### Set environment variable for the tracking URL where the Model Registry resides
+`export MLFLOW_TRACKING_URI=http://localhost:5000`
 
 ### Local  deplyment for testing purposes   
 ```mlflow models serve -m "models:/mnist_classifier/1" -p 8000```
