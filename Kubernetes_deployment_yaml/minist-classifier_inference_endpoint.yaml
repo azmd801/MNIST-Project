@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minist-inference-endpoint-deployment
+  labels:
+    app: minist-classifier
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minist-classifier
+  template:
+    metadata:
+      labels:
+        app: minist-classifier
+    spec:
+      containers:
+      - name: minist-classifier
+        image: azmd801/minist-classifier:dev
+        ports:
+        - containerPort: 27017
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minist-classifier-service
+spec:
+  selector:
+    app: minist-classifier
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30001

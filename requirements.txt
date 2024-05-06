@@ -1,0 +1,10 @@
+mlflow
+python-dotenv
+boto3
+tensorflow
+tensorflow-datasets
+python-box==6.0.2
+ensure==1.0.2
+# tensorflow_hub
+-e .
+
