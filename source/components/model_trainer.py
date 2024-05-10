@@ -4,6 +4,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from pathlib import Path
+import mlflow
 import os
 
 
@@ -38,8 +39,12 @@ class ModelTrainer:
 
     def train(self):
         model = self.model_initialization()
-        model.fit(x=self.train_data, epochs=3)
+        mlflow.tensorflow.autolog(checkpoint=True,log_models=False)
+        with mlflow.start_run(run_name='Training',log_system_metrics=True) as run:
+            model.fit(x=self.train_data, epochs=3)
 
         ## Save model
         model.save(os.path.join(self.config.root_dir,self.config.saved_trained_model))
+
+        return run.info.run_id
 

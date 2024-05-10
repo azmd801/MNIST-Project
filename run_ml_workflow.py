@@ -57,7 +57,7 @@ try:
    logger.info(f"*******************")
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
    model_trainer = ModelTrainerTrainingPipeline(training_data=train_data_prefetched)
-   model_trainer.main()
+   mlfow_run_id=model_trainer.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
         logger.exception(e)
@@ -81,7 +81,7 @@ STAGE_NAME = "Model registration stage"
 try: 
    logger.info(f"*******************")
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-   model_registration = ModelRegistationPipeline()
+   model_registration = ModelRegistationPipeline(mlfow_run_id)
    model_info=model_registration .main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed with with registering {model_info}  <<<<<<\n\nx==========x")
 except Exception as e:

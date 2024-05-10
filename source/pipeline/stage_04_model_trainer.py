@@ -16,4 +16,4 @@ class ModelTrainerTrainingPipeline:
             train_data=self.training_data
             )
         # print(model_trainer)
-        model_trainer.train()
+        return model_trainer.train()
